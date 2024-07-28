@@ -19,18 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
     ball.style.top = `${ballY}px`;
     if (
       //collision between paddle and ball, ball touches paddle from right
-      ballX < paddle.offsetLeft + paddle.offsetWidth &&
+      ballX + ball.offsetWidth > paddleX &&
+      ballX < paddleX + paddle.offsetWidth &&
       ballY > paddle.offsetTop &&
       ballY + ball.offsetHeight < paddle.offsetTop + paddle.offsetHeight
     ) {
-      dispx = -dispx + 1; //adding slight acceleration
+      dispx = -dispx + 2; //adding slight acceleration
     }
     //wall collisions
     if (ballX > table.offsetWidth - ball.offsetWidth || ballX <= 0)
       dispx = dispx * -1;
     if (ballY > table.offsetHeight - ball.offsetHeight || ballY <= 0)
       dispy = dispy * -1;
-  }, 20);
+  }, 10);
   document.addEventListener("keydown", (event) => {
     event.preventDefault();
     if (event.keyCode == 38 && paddleY > 0) {
