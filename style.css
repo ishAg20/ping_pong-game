@@ -11,13 +11,15 @@ html {
   width: 550px;
   height: 500px;
   position: relative;
+  overflow: hidden;
 }
 #paddle {
   background-color: blue;
   width: 10px;
   height: 75px;
-  margin-left: 2px;
+  left: 2px;
   position: absolute;
+  top: 0;
 }
 #ball {
   background-color: red;
